@@ -447,6 +447,8 @@ for my $method_name (qw/
         if (!$ok) {
             my $dir = RT::Test->temp_directory;
             my ($name) = $self->uri =~ m{/([^/]+)$};
+            $name ||= 'index.html';
+
             my $file = $dir . '/' . RT::Test->builder->current_test . '-' . $name;
 
             open my $handle, '>', $file or die $@;
