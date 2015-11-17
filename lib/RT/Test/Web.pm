@@ -451,9 +451,9 @@ for my $method_name (qw/
 
             my $file = $dir . '/' . RT::Test->builder->current_test . '-' . $name;
 
-            open my $handle, '>', $file or die $@;
-            print $handle $self->content or die $@;
-            close $handle or die $@;
+            open my $handle, '>', $file or die $!;
+            print $handle $self->content or die $!;
+            close $handle or die $!;
 
             Test::More::diag("Dumped failing test page content to $file");
         }
